@@ -10,6 +10,11 @@
       "StackName": "amplify-sabsportfolio-dev-204819",
       "StackId": "arn:aws:cloudformation:us-east-1:170467574229:stack/amplify-sabsportfolio-dev-204819/60507920-84bf-11ed-89b6-1200a9993c09",
       "AmplifyAppId": "d23r2n8m2nf7uy"
+    },
+    "categories": {
+      "api": {
+        "sabsportfolio": {}
+      }
     }
   }
 }
