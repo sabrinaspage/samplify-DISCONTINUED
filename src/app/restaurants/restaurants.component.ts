@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APIService, Restaurant } from '../API.service';
 
@@ -7,14 +7,22 @@ import { APIService, Restaurant } from '../API.service';
   templateUrl: './restaurants.component.html',
   styleUrls: ['./restaurants.component.scss'],
 })
-export class RestaurantsComponent {
+export class RestaurantsComponent implements OnInit {
   public createForm: FormGroup;
+  public restaurants: Array<Restaurant> = [];
 
   constructor(private api: APIService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
       city: ['', Validators.required],
+    });
+  }
+
+  async ngOnInit() {
+    /* fetch restaurants when app loads */
+    this.api.ListRestaurants().then((event) => {
+      this.restaurants = event.items as Restaurant[];
     });
   }
 

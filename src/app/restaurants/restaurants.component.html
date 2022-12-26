@@ -19,3 +19,8 @@
     <input type="text" formControlName="city" autocomplete="off" />
   </form>
 </div>
+<div *ngFor="let restaurant of restaurants">
+  <div>{{ restaurant?.city }}</div>
+  <div>{{ restaurant?.name }}</div>
+  <div>{{ restaurant?.description }}</div>
+</div>
